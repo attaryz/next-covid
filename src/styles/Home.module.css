@@ -15,3 +15,45 @@
   padding: 0px 0.5rem;
   height: 5vh;
 }
+.headersTitle {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+}
+.countries {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0px 20px;
+  height: 90vh;
+}
+.countriesCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  color: #fff;
+  margin: 5px auto;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  width: 15rem;
+  border-radius: 20px;
+  transition: 0.4s ease;
+}
+.countriesCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 2);
+}
+.countriesCard img {
+  object-fit: contain;
+  background-color: #fff;
+  height: 6rem;
+  width: 95%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-bottom: 5px;
+}

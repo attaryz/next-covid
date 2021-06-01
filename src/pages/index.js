@@ -18,6 +18,48 @@ export default function Home(data, countries) {
           Countries With Less Than 5000 Confirmed Cases: {data.countries.length}
         </p>
       </div>
+      <p className={styles.headersTitle}>
+        Countries With The Lowest Confirmed Cases
+      </p>
+      <div className={styles.countries}>
+        {data.countries.map((country) => {
+          return (
+            <div className={styles.countriesCard}>
+              <img
+                src={
+                  "https://flagcdn.com/" +
+                  country.CountryCode.toLowerCase() +
+                  ".svg"
+                }
+                alt={country.Country}
+              />
+              <p className={styles.countryName}>
+                {country.Country} {country.CountryCode}
+              </p>
+              <div className={styles.countryInfo}>
+                <span className={styles.textInfo}>
+                  Confirmed{" "}
+                  <span className={styles.numberInfo}>
+                    {country.TotalConfirmed}
+                  </span>
+                </span>
+                <span className={styles.textInfo}>
+                  Recovered{" "}
+                  <span className={styles.numberInfo}>
+                    {country.TotalRecovered}
+                  </span>
+                </span>
+                <span className={styles.textInfo}>
+                  Deaths{" "}
+                  <span className={styles.numberInfo}>
+                    {country.TotalDeaths}
+                  </span>
+                </span>
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
