@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import styles from "../styles/Home.module.css";
 
 export default function Home(data, countries) {
@@ -24,39 +25,43 @@ export default function Home(data, countries) {
       <div className={styles.countries}>
         {data.countries.map((country) => {
           return (
-            <div className={styles.countriesCard}>
-              <img
-                src={
-                  "https://flagcdn.com/" +
-                  country.CountryCode.toLowerCase() +
-                  ".svg"
-                }
-                alt={country.Country}
-              />
-              <p className={styles.countryName}>
-                {country.Country} {country.CountryCode}
-              </p>
-              <div className={styles.countryInfo}>
-                <span className={styles.textInfo}>
-                  Confirmed{" "}
-                  <span className={styles.numberInfo}>
-                    {country.TotalConfirmed}
-                  </span>
-                </span>
-                <span className={styles.textInfo}>
-                  Recovered{" "}
-                  <span className={styles.numberInfo}>
-                    {country.TotalRecovered}
-                  </span>
-                </span>
-                <span className={styles.textInfo}>
-                  Deaths{" "}
-                  <span className={styles.numberInfo}>
-                    {country.TotalDeaths}
-                  </span>
-                </span>
-              </div>
-            </div>
+            <Link key={country.ID} href={"/" + country.Slug}>
+              <a>
+                <div className={styles.countriesCard}>
+                  <img
+                    src={
+                      "https://flagcdn.com/" +
+                      country.CountryCode.toLowerCase() +
+                      ".svg"
+                    }
+                    alt={country.Country}
+                  />
+                  <p className={styles.countryName}>
+                    {country.Country} ({country.CountryCode})
+                  </p>
+                  <div className={styles.countryInfo}>
+                    <span className={styles.textInfo}>
+                      Confirmed{" "}
+                      <span className={styles.numberInfo}>
+                        {country.TotalConfirmed}
+                      </span>
+                    </span>
+                    <span className={styles.textInfo}>
+                      Recovered{" "}
+                      <span className={styles.numberInfo}>
+                        {country.TotalRecovered}
+                      </span>
+                    </span>
+                    <span className={styles.textInfo}>
+                      Deaths{" "}
+                      <span className={styles.numberInfo}>
+                        {country.TotalDeaths}
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </Link>
           );
         })}
       </div>
